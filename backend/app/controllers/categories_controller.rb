@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     register Sinatra::Namespace
 
     namespace "/api" do
-        
+
         before do
             content_type "application/json"
         end
@@ -27,15 +27,15 @@ class CategoriesController < ApplicationController
             halt_with_error unless @record
             @record.to_json
         end
-        
+
         get "/category/title/:title" do
             @record = Category.find_by(category: params[:title])
             halt_with_error unless @record
             @record.to_json
         end
-        
+
         patch "/category/:id" do
-            @record = category 
+            @record = category
             halt_with_error unless @record
             @record.update(category: params[:category])
             halt(202, @record.to_json)
@@ -58,5 +58,4 @@ class CategoriesController < ApplicationController
         end
 
     end
-
 end

@@ -8,5 +8,4 @@ class ApplicationController < Sinatra::Base
     get "/" do
         "Welcome in Todos APP"
     end
-
 end
